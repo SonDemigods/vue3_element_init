@@ -9,8 +9,14 @@ import 'element-plus/lib/theme-chalk/index.css'
 // 导入根组件
 import App from './App.vue'
 
+// 导入路由
+import router from '@/router'
+
 // 创建vue实例
 const app = createApp(App)
+
+// 加载路由
+app.use(router)
 
 // 使用ui组件
 app.use(ElementPlus)
