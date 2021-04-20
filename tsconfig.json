@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
+    // 模块的查找路径
     "baseUrl": ".",
+    // 路径别名
     "paths": {
       "@/*": [
         "src/*"
@@ -9,16 +11,42 @@
         "src/components/*"
       ]
     },
+    // 输出文件的js版本
     "target": "esnext",
+    // 模块标准
     "module": "esnext",
-    "moduleResolution": "node",
+    // 模块的解析规则
+    "moduleResolution": "Node",
     "strict": true,
+    // 在ts文件中使用jsx
     "jsx": "preserve",
+    // 生成map文件
     "sourceMap": true,
+    // 允许导入JSON文件的模块
     "resolveJsonModule": true,
+    // 模块导入兼容
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "types": ["vite/client"]
+    // 引入的库文件
+    "lib": [
+      "esnext", 
+      "dom"
+    ],
+    // 跳过声明文件的检查
+    "skipLibCheck": true,
+    // 声明文件查找路径需要加载的模块
+    "types": [
+      "vite/client"
+    ]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  // 引入的文件
+  "include": [
+    "src/**/*.ts", 
+    "src/**/*.d.ts", 
+    "src/**/*.tsx", 
+    "src/**/*.vue"
+  ],
+  // 排除的文件
+  "exclude": [
+    "node_modules"
+  ]
 }
