@@ -13,9 +13,7 @@
 import {
   getCurrentInstance,
   ref,
-  onMounted,
-  onBeforeUpdate,
-  onUpdated
+  onMounted
 } from 'vue'
 
 import commonRoutes from '@/router/common.routes'
@@ -30,6 +28,7 @@ export default {
   props: {},
   setup () {
 
+    // 解构上下文中的实例
     const {ctx} = getCurrentInstance()
 
     // 合并路由配置
@@ -37,10 +36,14 @@ export default {
       ...commonRoutes,
       ...businessRoutes
     ]
+
+    // 初始化菜单数组
     let menuList = ref([])
 
     /**
      * @functionName menuInit
+     * @param {Array} routes 待处理的路由数组
+     * @return {Array} 处理后的菜单数组
      * @description 初始化菜单列表
      * @author 张航
      * @date 2021-04-20 16:38:23
@@ -56,6 +59,8 @@ export default {
             icon: meta.icon,
             path: item.path
           }
+
+          // 对含有子项的路由进行递归处理
           if (!ctx.$_.isEmpty(item.children)) {
             obj.children = menuInit(item.children)
           }
