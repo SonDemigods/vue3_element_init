@@ -15,11 +15,9 @@ const ROUTER = createRouter({
       path: '/Main',
       name: 'Main',
       component: () => import(/* webpackChunkName: "Layout" */ '@/layout/index.vue'),
-      children:[
-        ...business
-      ]
-    }
-  ]
+      children: [...business],
+    },
+  ],
 })
 
 export default ROUTER
