@@ -2,8 +2,7 @@
   <el-menu default-active="2"
            :router="true"
            class="el-menu-vertical-demo"
-           @open="handleOpen"
-           @close="handleClose">
+           >
     
     <menu-item :list="menuList" />
   </el-menu>
