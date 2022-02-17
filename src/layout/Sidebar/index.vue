@@ -28,7 +28,13 @@ export default {
   setup () {
 
     // 解构上下文中的实例
-    const {ctx} = getCurrentInstance()
+    const {
+      appContext: {
+        config: {
+          globalProperties
+        }
+      }
+    } = getCurrentInstance()
 
     // 合并路由配置
     const routes = [
@@ -60,7 +66,7 @@ export default {
           }
 
           // 对含有子项的路由进行递归处理
-          if (!ctx.$_.isEmpty(item.children)) {
+          if (!globalProperties.$_.isEmpty(item.children)) {
             obj.children = menuInit(item.children)
           }
           arr.push(obj)
